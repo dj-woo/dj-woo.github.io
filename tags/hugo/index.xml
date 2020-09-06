@@ -1,24 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on djwoo blog</title>
-    <link>https://dj-woo.github.io/post/</link>
-    <description>Recent content in Posts on djwoo blog</description>
+    <title>hugo on djwoo blog</title>
+    <link>https://dj-woo.github.io/tags/hugo/</link>
+    <description>Recent content in hugo on djwoo blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Sun, 06 Sep 2020 20:41:10 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 10 Apr 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://dj-woo.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://dj-woo.github.io/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>첫 포스트</title>
-      <link>https://dj-woo.github.io/2020/09/%EC%B2%AB-%ED%8F%AC%EC%8A%A4%ED%8A%B8/</link>
-      <pubDate>Sun, 06 Sep 2020 20:41:10 +0900</pubDate>
-      
-      <guid>https://dj-woo.github.io/2020/09/%EC%B2%AB-%ED%8F%AC%EC%8A%A4%ED%8A%B8/</guid>
-      <description></description>
-    </item>
     
     <item>
       <title>How To use Jupyter Notebook As Hugo Blog Post</title>
