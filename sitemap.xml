@@ -3,16 +3,6 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://dj-woo.github.io/categories/</loc>
-    <lastmod>2020-09-06T20:41:10+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://dj-woo.github.io/categories/category/</loc>
-    <lastmod>2020-09-06T20:41:10+09:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://dj-woo.github.io/</loc>
     <lastmod>2020-09-06T20:41:10+09:00</lastmod>
   </url>
@@ -23,32 +13,26 @@
   </url>
   
   <url>
-    <loc>https://dj-woo.github.io/categories/subcategory/</loc>
-    <lastmod>2020-09-06T20:41:10+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://dj-woo.github.io/tags/tag1/</loc>
-    <lastmod>2020-09-06T20:41:10+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://dj-woo.github.io/tags/tag2/</loc>
-    <lastmod>2020-09-06T20:41:10+09:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://dj-woo.github.io/tags/</loc>
     <lastmod>2020-09-06T20:41:10+09:00</lastmod>
   </url>
   
   <url>
-    <loc>https://dj-woo.github.io/2020/09/test/</loc>
+    <loc>https://dj-woo.github.io/tags/test/</loc>
+    <lastmod>2020-09-06T20:41:10+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dj-woo.github.io/2020/09/%EC%B2%AB-%ED%8F%AC%EC%8A%A4%ED%8A%B8/</loc>
     <lastmod>2020-09-06T20:41:10+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://dj-woo.github.io/archives/</loc>
+  </url>
+  
+  <url>
+    <loc>https://dj-woo.github.io/categories/</loc>
   </url>
   
 </urlset>
