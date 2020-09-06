@@ -2,13 +2,32 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on djwoo blog</title>
-    <link>https://djwoo.github.io/categories/</link>
+    <link>https://dj-woo.github.io/categories/</link>
     <description>Recent content in Categories on djwoo blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>kr-ko</language>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 06 Sep 2020 20:41:10 +0900</lastBuildDate>
     
-	<atom:link href="https://djwoo.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://dj-woo.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>category</title>
+      <link>https://dj-woo.github.io/categories/category/</link>
+      <pubDate>Sun, 06 Sep 2020 20:41:10 +0900</pubDate>
+      
+      <guid>https://dj-woo.github.io/categories/category/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>subcategory</title>
+      <link>https://dj-woo.github.io/categories/subcategory/</link>
+      <pubDate>Sun, 06 Sep 2020 20:41:10 +0900</pubDate>
+      
+      <guid>https://dj-woo.github.io/categories/subcategory/</guid>
+      <description></description>
+    </item>
     
   </channel>
 </rss>
