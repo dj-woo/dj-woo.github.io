@@ -74,6 +74,30 @@
     <a class="header-title-link" href="https://dj-woo.github.io/">djwoo blog</a>
   </div>
   
+  <script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+  });
+  MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
 </header>
 
       <nav id="sidebar" data-behavior="1">
@@ -189,10 +213,6 @@
       
         <ul class="archive-posts archive-month" data-date="202009">
           <h5 class="archive-title" style="text-decoration: none;">September</h5>
-          
-            <li class="archive-post archive-day" data-date="20200913">
-              <a class="archive-post-title" href="https://dj-woo.github.io/2020/09/transformer/">Transformer</a>
-            </li>
           
             <li class="archive-post archive-day" data-date="20200906">
               <a class="archive-post-title" href="https://dj-woo.github.io/2020/09/%EC%B2%AB-%ED%8F%AC%EC%8A%A4%ED%8A%B8/">첫 포스트</a>
