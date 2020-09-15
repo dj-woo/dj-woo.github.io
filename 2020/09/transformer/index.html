@@ -322,7 +322,7 @@ variables with mean 0 and variance 1. Then their dot product, <code>${qk} = {\su
 하면 input과 동일한 값을 얻을 수 있습니다. 식으로 나타내면 아래와 같습니다.
 <code>$$ MultiHead(Q,K,V) = { Concat(head_1,....,head_h)W^O}\\ where\ {head_i} = Attention(QW_i^Q, KW_i^K, VW_i^K)$$</code><br>
 <code>$W_i^Q, W_i^K, W_i^K$</code>는 각각 <code>$d_{model}$</code>의 input을 <code>$d_q, d_k, d_v$</code>로 linear project 시켜줍니다.
-논문에서는 사용한 값은 아래와 같습니다. h개의 head를 사용하지만, dimention을 1/h로 줄였기 때문에, total computational cost는
+논문에서는 사용한 값은 아래와 같습니다. h개의 head를 사용하지만, dimension을 1/h로 줄였기 때문에, total computational cost는
 single head를 사용할때와 유사합니다.<br>
 <code>$ h = 8, d_k=d_q=d_v=d_{model}/h=64$</code></p>
 <blockquote>
@@ -331,7 +331,7 @@ linear projections to dk, dk and dv dimensions, respectively.<br>
 <strong>paper</strong>: Due to the reduced dimension of each head, the total computational cost
 is similar to that of single-head attention with full dimensionality.</p>
 </blockquote>
-<h3 id="323-applications-of-attention-in-out-model">3.2.3 Applications of Attention in out Model</h3>
+<h3 id="323-applications-of-attention-in-our-model">3.2.3 Applications of Attention in our Model</h3>
 <p>앞에 내용을 정리해서, 적용한 attention model의 특징을 3가지로 설명 합니다.</p>
 <ul>
 <li>&ldquo;encoder-decoder attention layer&quot;에서 query는 앞단의 decoder layer에서 오고, key와 value는 encoder의 저장된 output입니다. 
@@ -344,7 +344,7 @@ is similar to that of single-head attention with full dimensionality.</p>
 <h2 id="33-position-wise-feed-forward-networks">3.3 Position-wise Feed-Forward Networks</h2>
 <p><img src="https://dj-woo.github.io/img/transformer/feedforward.PNG" alt="FeedForward">
 Feedforward layer는 2단의 fully connected layer가 activation function으로 연결된 형태입니다.
-input/output의 dimention은 <code>$d_{model} = 512$</code>이지만, inner-layer는 4배 많은 <code>$d_{ff}=2048$</code>을 사용합니다.</p>
+input/output의 dimension은 <code>$d_{model} = 512$</code>이지만, inner-layer는 4배 많은 <code>$d_{ff}=2048$</code>을 사용합니다.</p>
 <ul>
 <li>size(W1) = <code>$d_{model}\ \times\ d_{ff} = 512 \times 2048 $</code></li>
 <li>size(W2) = <code>$d_{ff}\ \times\ d_{model} = 2048 \times 512 $</code></li>
