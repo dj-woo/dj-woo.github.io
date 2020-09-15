@@ -12,47 +12,20 @@
     
     
     <item>
-      <title>tag1</title>
-      <link>https://dj-woo.github.io/tags/tag1/</link>
+      <title>ML</title>
+      <link>https://dj-woo.github.io/tags/ml/</link>
       <pubDate>Sun, 13 Sep 2020 17:00:49 +0900</pubDate>
       
-      <guid>https://dj-woo.github.io/tags/tag1/</guid>
+      <guid>https://dj-woo.github.io/tags/ml/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>tag2</title>
-      <link>https://dj-woo.github.io/tags/tag2/</link>
+      <title>paper review</title>
+      <link>https://dj-woo.github.io/tags/paper-review/</link>
       <pubDate>Sun, 13 Sep 2020 17:00:49 +0900</pubDate>
       
-      <guid>https://dj-woo.github.io/tags/tag2/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>test</title>
-      <link>https://dj-woo.github.io/tags/test/</link>
-      <pubDate>Sun, 06 Sep 2020 20:41:10 +0900</pubDate>
-      
-      <guid>https://dj-woo.github.io/tags/test/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>data science</title>
-      <link>https://dj-woo.github.io/tags/data-science/</link>
-      <pubDate>Fri, 10 Apr 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://dj-woo.github.io/tags/data-science/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>hugo</title>
-      <link>https://dj-woo.github.io/tags/hugo/</link>
-      <pubDate>Fri, 10 Apr 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://dj-woo.github.io/tags/hugo/</guid>
+      <guid>https://dj-woo.github.io/tags/paper-review/</guid>
       <description></description>
     </item>
     

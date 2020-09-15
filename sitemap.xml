@@ -8,32 +8,27 @@
   </url>
   
   <url>
-    <loc>https://dj-woo.github.io/categories/category/</loc>
-    <lastmod>2020-09-13T17:00:49+09:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://dj-woo.github.io/</loc>
     <lastmod>2020-09-13T17:00:49+09:00</lastmod>
   </url>
   
   <url>
+    <loc>https://dj-woo.github.io/tags/ml/</loc>
+    <lastmod>2020-09-13T17:00:49+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dj-woo.github.io/categories/ml/</loc>
+    <lastmod>2020-09-13T17:00:49+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dj-woo.github.io/tags/paper-review/</loc>
+    <lastmod>2020-09-13T17:00:49+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://dj-woo.github.io/post/</loc>
-    <lastmod>2020-09-13T17:00:49+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://dj-woo.github.io/categories/subcategory/</loc>
-    <lastmod>2020-09-13T17:00:49+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://dj-woo.github.io/tags/tag1/</loc>
-    <lastmod>2020-09-13T17:00:49+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://dj-woo.github.io/tags/tag2/</loc>
     <lastmod>2020-09-13T17:00:49+09:00</lastmod>
   </url>
   
@@ -45,31 +40,6 @@
   <url>
     <loc>https://dj-woo.github.io/2020/09/transformer/</loc>
     <lastmod>2020-09-13T17:00:49+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://dj-woo.github.io/tags/test/</loc>
-    <lastmod>2020-09-06T20:41:10+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://dj-woo.github.io/2020/09/%EC%B2%AB-%ED%8F%AC%EC%8A%A4%ED%8A%B8/</loc>
-    <lastmod>2020-09-06T20:41:10+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://dj-woo.github.io/tags/data-science/</loc>
-    <lastmod>2020-04-10T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://dj-woo.github.io/2020/04/how-to-use-jupyter-notebook-as-hugo-blog-post/</loc>
-    <lastmod>2020-04-10T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://dj-woo.github.io/tags/hugo/</loc>
-    <lastmod>2020-04-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>

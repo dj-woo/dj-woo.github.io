@@ -20,23 +20,5 @@
       <description></description>
     </item>
     
-    <item>
-      <title>첫 포스트</title>
-      <link>https://dj-woo.github.io/2020/09/%EC%B2%AB-%ED%8F%AC%EC%8A%A4%ED%8A%B8/</link>
-      <pubDate>Sun, 06 Sep 2020 20:41:10 +0900</pubDate>
-      
-      <guid>https://dj-woo.github.io/2020/09/%EC%B2%AB-%ED%8F%AC%EC%8A%A4%ED%8A%B8/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>How To use Jupyter Notebook As Hugo Blog Post</title>
-      <link>https://dj-woo.github.io/2020/04/how-to-use-jupyter-notebook-as-hugo-blog-post/</link>
-      <pubDate>Fri, 10 Apr 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://dj-woo.github.io/2020/04/how-to-use-jupyter-notebook-as-hugo-blog-post/</guid>
-      <description>a = print(&amp;#34;Hello&amp;#34;) Hello  </description>
-    </item>
-    
   </channel>
 </rss>
