@@ -33,6 +33,8 @@
     
       <meta property="article:section" content="ML">
     
+      <meta property="article:section" content="paper review">
+    
   
   
     
@@ -243,7 +245,9 @@
   
     <span>in</span>
     
-      <a class="category-link" href="https://dj-woo.github.io/categories/ml">ML</a>
+      <a class="category-link" href="https://dj-woo.github.io/categories/ml">ML</a>, 
+    
+      <a class="category-link" href="https://dj-woo.github.io/categories/paper-review">paper review</a>
     
   
 
@@ -310,7 +314,7 @@ Input은 Query, Key 그리고 value로 구성되어 있으면, 각각 아래의 
 <p>Scaled Dot-Product attention layer는 위에 그림처럼, <code>$QK^T$</code>에 softmax를 취하여 weight을 계산합니다.
 그리고, 이 값을 Value와 곱하는 layer입니다. 전체 식은 아래와 같습니다.<br>
 <code>$$ Attention(Q,K,V) = {softmax(\frac{QK^T}{\sqrt{d_k}})V} $$</code><br>
-여기서 <code>$\sqrt{d_k}$</code>로 나누는 이유는 <code>$\sqrt{d_k}</code>의 값이 거질수로, dot-product의 결과값이 softmax가 잘 동작하지 않는 regions으로 가기 때문입니다.</p>
+여기서 <code>$\sqrt{d_k}$</code>로 나누는 이유는 <code>$\sqrt{d_k}$</code>의 값이 거질수로, dot-product의 결과값이 softmax가 잘 동작하지 않는 regions으로 가기 때문입니다.</p>
 <blockquote>
 <p><strong>paper</strong>: To illustrate why the dot products get large, assume that the components of q and k are independent random
 variables with mean 0 and variance 1. Then their dot product, <code>${qk} = {\sum_{i=1}^{d_k}q_iK_i}$</code>, has mean 0 and variance <code>$d_k$</code>.</p>

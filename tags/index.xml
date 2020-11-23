@@ -6,7 +6,7 @@
     <description>Recent content in Tags on djwoo blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Thu, 29 Oct 2020 00:08:34 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 23 Nov 2020 22:14:37 +0900</lastBuildDate>
     
 	<atom:link href="https://dj-woo.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,9 +14,18 @@
     <item>
       <title>ML</title>
       <link>https://dj-woo.github.io/tags/ml/</link>
-      <pubDate>Thu, 29 Oct 2020 00:08:34 +0900</pubDate>
+      <pubDate>Mon, 23 Nov 2020 22:14:37 +0900</pubDate>
       
       <guid>https://dj-woo.github.io/tags/ml/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>paper review</title>
+      <link>https://dj-woo.github.io/tags/paper-review/</link>
+      <pubDate>Mon, 23 Nov 2020 22:14:37 +0900</pubDate>
+      
+      <guid>https://dj-woo.github.io/tags/paper-review/</guid>
       <description></description>
     </item>
     
@@ -26,15 +35,6 @@
       <pubDate>Thu, 29 Oct 2020 00:08:34 +0900</pubDate>
       
       <guid>https://dj-woo.github.io/tags/pytorch/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>paper review</title>
-      <link>https://dj-woo.github.io/tags/paper-review/</link>
-      <pubDate>Sun, 13 Sep 2020 17:00:49 +0900</pubDate>
-      
-      <guid>https://dj-woo.github.io/tags/paper-review/</guid>
       <description></description>
     </item>
     
