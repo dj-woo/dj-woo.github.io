@@ -13,20 +13,20 @@
 
 <meta property="og:description" content="">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Torch_tutorials">
-<meta name="twitter:title" content="Torch_tutorials">
-<meta property="og:url" content="https://dj-woo.github.io/2020/10/torch_tutorials/">
-<meta property="twitter:url" content="https://dj-woo.github.io/2020/10/torch_tutorials/">
+<meta property="og:title" content="Git_test">
+<meta name="twitter:title" content="Git_test">
+<meta property="og:url" content="https://dj-woo.github.io/2021/01/git_test/">
+<meta property="twitter:url" content="https://dj-woo.github.io/2021/01/git_test/">
 <meta property="og:site_name" content="djwoo blog">
 <meta property="og:description" content="">
 <meta name="twitter:description" content="">
 <meta property="og:locale" content="en-us">
 
   
-    <meta property="article:published_time" content="2020-10-09T12:44:01">
+    <meta property="article:published_time" content="2021-01-10T16:02:17">
   
   
-    <meta property="article:modified_time" content="2020-10-09T12:44:01">
+    <meta property="article:modified_time" content="2021-01-10T16:02:17">
   
   
   
@@ -38,9 +38,9 @@
   
   
     
-      <meta property="article:tag" content="ML">
+      <meta property="article:tag" content="github">
     
-      <meta property="article:tag" content="PyTorch">
+      <meta property="article:tag" content="git flow">
     
   
 
@@ -61,14 +61,14 @@
   <meta property="twitter:image" content="https://www.gravatar.com/avatar/9f4c32e0b56b36cdb288d9b239c9324c?s=640">
 
 
-    <title>Torch_tutorials</title>
+    <title>Git_test</title>
 
     <link rel="icon" href="https://dj-woo.github.io/favicon.png">
     
 
     
 
-    <link rel="canonical" href="https://dj-woo.github.io/2020/10/torch_tutorials/">
+    <link rel="canonical" href="https://dj-woo.github.io/2021/01/git_test/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -228,15 +228,15 @@
             <div class="post-header main-content-wrap text-left">
   
     <h1 class="post-title" itemprop="headline">
-      Torch_tutorials
+      Git_test
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2020-10-09T12:44:01&#43;09:00">
+      <time itemprop="datePublished" datetime="2021-01-10T16:02:17&#43;09:00">
         
-  October 9, 2020
+  January 10, 2021
 
       </time>
     
@@ -257,97 +257,80 @@
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p><strong>개인 study를 위한 자료입니다.</strong><br>
-<strong>그러다보니 내용에 잘못된 점이 있습니다.</strong></p>
-<p>PyTorch tutorial 을 하면서, 이해한 내용을 정리를 하였습니다.</p>
-<h1 id="summary">Summary</h1>
+              <p>기본적인 git 사용방법은 튜토리얼[<a href="https://learngitbranching.js.org/?locale=ko" title="option text">1</a>]을 통해서 공부하였습니다.</p>
+<h1 id="git-basic-명령어">git basic 명령어</h1>
 <ol>
-<li><code>torch.tensor</code> - &ldquo;N차원 배열 data&rdquo; + &ldquo;GPU&rdquo; + &ldquo;gradient&rdquo;
-<ul>
-<li>N차원 배열 data를 저장하는 면에서, <code>numpy.ndarray</code>와 비슷합니다.</li>
-<li>CPU/GPU device 이동을 지원합니다. <code>to(device)</code></li>
-<li><code>autograd</code>를 지원합니다. 이를 통해, back propagation을 손쉽게 할 수 있습니다.</li>
-</ul>
-</li>
-<li><code>torch.nn</code> - Neural Networks을 정의합니다.
-<ul>
-<li><code>Module</code> : Layer와 <code>forward</code> method를 포함하며, 주로 model를 새로 정의할때, parent class 로 사용합니다.</li>
-<li><code>Parameter</code> : Tensor의 subclass(wrapper)로, <code>Module</code>에서 학습을 위한 weight 관리를 용이하게 합니다.
-<code>parameters()</code> iterator 로 불러 올 수 있습니다.</li>
-<li><code>functional</code> : 활성화 함수, 손실 함수 등을 포함하는 모듈로 일반적으로 <code>F</code> import합니다.
-또한 convolution과 linear layer와 같이, 저장 state를 가지는 layer의 non-statefule 버전 레이어도 포함되어 있습니다.</li>
-</ul>
-</li>
-<li><code>torch.optim</code> - <code>backward()</code> 단계에서, <code>Parameter</code>를 update하는 optimizer를 포함하는 module</li>
-<li><code>Dataset</code> - dataset을 표현하기 위해 제공되는 <code>__len__</code>과 <code>__getitem__</code>을 포함하는 abstract class.</li>
-<li><code>DataLoader</code> - <code>Dataset</code>을 기반으로 데이터의 배치를 출력하는 iterator.</li>
+<li>git config/init/clone<br>
+<code>git config –-global user.name “[name]”</code><br>
+<code>git init [repository name]</code><br>
+<code>git clone [url]</code></li>
+<li>git add/commit [<a href="https://git-scm.com/book/ko/v2/Git-%EB%8F%84%EA%B5%AC-Reset-%EB%AA%85%ED%99%95%ED%9E%88-%EC%95%8C%EA%B3%A0-%EA%B0%80%EA%B8%B0" title="option text">6</a>]<br>
+<code>git add [file]</code>, <code>git add *</code>, <code>git add .</code><br>
+<code>git commit -m “[ Type in the commit message]&quot;</code>, <code>git commit -a</code></li>
+<li>git reset/revert [<a href="https://www.atlassian.com/git/tutorials/undoing-changes/git-revert#:~:text=Summary,in%20regards%20to%20losing%20work" title="option text">7</a>]<br>
+<code>git reset --soft HEAD~</code>, <code>git reset [--mixed]</code>, <code>git --hard HEAD~</code><br>
+<code>git reset file.txt</code> == <code>git reset [--mixed] HEAD file.txt</code><br>
+<code>git revert HEAD~3</code>, <code>git revert -n HEAD~5 HEAD~3</code></li>
+<li>git branch/checkout<br>
+<code>git branch &lt;branchname&gt;</code>, <code>git branch release_1.0 master</code><br>
+<code>git branch -D &lt;branchname&gt;</code>, <code>git branch -m &lt;branch1&gt; &lt;branch2&gt;</code><br>
+<code>git checkout &lt;branch&gt;</code>, <code>git checkout -b &lt;branch&gt; -t &lt;base_branch&gt;</code></li>
+<li>git remote/push/pull/fetch<br>
+<code>git remote -v</code>, <code>git remote add upstream https~~~</code><br>
+<code>git push origin</code>, <code>git push origin master:master</code>, <code>git push --set-upstream origin develop</code><br>
+<code>git fetch origin</code>, <code>git fetch origin master:master</code><br>
+<code>git pull origin</code>, <code>git fetch origin master:master</code></li>
+<li>git merge/rebase/cherry-pick [<a href="https://readystory.tistory.com/151" title="option text">8</a>]<br>
+<code>git merge &lt;branch&gt;</code>, <code>git merge --squash &lt;branch&gt;</code><br>
+<code>git rebase &lt;branch&gt;</code>, <code>git rebase -i &lt;branch&gt;</code><br>
+<code>git rebase &lt;base_branch&gt; &lt;topic_branc&gt;</code>, <code>git rebase --onto master server client</code><br>
+<code>git cherry-pick &lt;commit&gt;</code></li>
 </ol>
-<h2 id="1-torchtensor">1. torch.Tensor</h2>
-<p><code>numpy.ndarray</code>와 비슷하게 다차원 연산을 위한 기본 function들을 제공합니다.
-<script type="application/javascript" src="https://gist.github.com/dj-woo/a3efcf2581a82b98a8d4b1a5ebd3a84b.js?file=tensor_tutorial_1.py"></script>
-</p>
-<p>그리고, PyTorch는 <code>tensor</code>에 <code>autograd</code>를 넣어 가장 중심이되는 class로 사용합니다.</p>
+<h1 id="협업-방법">협업 방법</h1>
+<p>git을 활용한 협업 방법(workflow)에는 Git flow, GitHub flow, GitLab flow가 있습니다.<br>
+나온 순서로는 Git flow &gt; GitHub flow &gt; GitLab flow, 복잡도는 Git flow &gt; GitLab flow &gt; GitHub flow 순입니다.\</p>
+<ol>
+<li>Fork: upstream -&gt; origin</li>
+<li>clone: origin -&gt; local</li>
+<li>issue 생성: in upstream</li>
+<li>branch 생성: in local</li>
+</ol>
 <ul>
-<li>이전에는 <code>torch.autograd.Variable</code>이라는 tensor의 wrapper class가 있어, 여기서 operation hisotry를 저장했습니다. 하지만, <code>autograd</code>가 <code>tensor</code>에서 자동 지원되면서, 더 이상 지원하지 않습니다.)</li>
+<li><code>git checkout -b develop -t origin/develop</code></li>
+<li><code>git checkout -b feature-add_world -t develop</code></li>
 </ul>
-<blockquote>
-<p><strong>torch.Tensor is the central class of the package.</strong></p>
-</blockquote>
-<p><code>tensor.requires_grad</code>를 <code>True</code>로 하면, <code>tensor</code>를 사용한 연산과정을 기록(<code>grad_fn</code>)합니다. 
-그리고, 최종단 <code>tensor</code>에서 <code>.backward()</code>가 수행되면, gradient가 계산되어 <code>tensor.grad</code>에 저장되고, 
-이 값은, <code>grad_fn</code>에 기록된 연산을 타고, back propagation 이 진행됩니다. 예를 들어 아래와 같이 code를 작성한 경우 [<a href="https://medium.com/@namanphy/understanding-autograd-5-pytorch-tensor-functions-8f47c27dc38">2</a>],</p>
-<script type="application/javascript" src="https://gist.github.com/dj-woo/a3efcf2581a82b98a8d4b1a5ebd3a84b.js?file=tensor_tutorial_2.py"></script>
-
-<p>아래 그림과 같은 NN이 생성이 되며, <code>z</code>와 <code>y</code>는 <code>gard_fn</code>에, 해당 tensor가 계산 되는 과정이 저장됩니다.
-<code>z.backward()</code>가 수행이되면, <code>z.grand_fn</code>에서 주어진 값들이 back propagation 되면서,
-<code>x.grad</code>, <code>a.grad</code>, <code>b.grad</code>가 자동 계산됩니다. 
-이 기능을 통해서, <code>tensor</code> 만으로도 model 작성과 학습이 가능합니다.
-<img src="https://dj-woo.github.io/img/torch_tutorials/NN_1.png" alt="backward() exmaple"></p>
-<h2 id="2-torchnn--torchoptim--dataset--dataloader">2. torch.nn &amp; torch.optim &amp; Dataset &amp; DataLoader</h2>
-<p>이 부분은 실제 예제를 통해서 이해하는게 좋습니다.[<a href="https://pytorch.org/tutorials/beginner/nn_tutorial.html">3</a>]</p>
-<p><code>torch.nn</code>, <code>torch.optim</code>, <code>Dataset</code> 그리고 <code>DataLoader</code>없이 Tensor만을 이용해서, 아래와 같이 Linear regression을 model을 구현하고 학습할 수 있습니다.
-<script type="application/javascript" src="https://gist.github.com/dj-woo/2d9a3d97d3c97e8b986f0bef9c72e69c.js?file=only_tensor.py"></script>
-</p>
-<h3 id="1-nnfunctional-사용">1) nn.functional 사용</h3>
-<p>여기서, <code>torch.nn.functional</code>를 사용해서, <code>log_softmax()</code> + <code>negative_log_likelihood()</code>를 하나의 함수로 처리할 수 있습니다.
-<script type="application/javascript" src="https://gist.github.com/dj-woo/2d9a3d97d3c97e8b986f0bef9c72e69c.js?file=cross_entropy.py"></script>
-</p>
-<h3 id="2-nnmodule-사용">2) nn.Module 사용</h3>
-<p>학습의 대상이 되는 parameter와 Neural Networks model을 쉽게 관리하기 위하여, <code>nn.Module</code>을 사용합니다.
-<script type="application/javascript" src="https://gist.github.com/dj-woo/2d9a3d97d3c97e8b986f0bef9c72e69c.js?file=nn_Module_model.py"></script>
-
-<code>nn.Module</code>의 <code>Parameters()</code>를 이용해서, model에 속해 있는 parameter에 대해서 아래와 같이 쉽게 관리 할 수 있습니다.
-<script type="application/javascript" src="https://gist.github.com/dj-woo/2d9a3d97d3c97e8b986f0bef9c72e69c.js?file=nn_Module_train.py"></script>
-</p>
-<h3 id="3-nnlinear-사용">3) nn.Linear 사용</h3>
-<p>미리 정의된 Model들 을 사용해서, code를 리팩토링 할 수 있습니다.
-<code>nn.Linear</code>를 사용해서, <code>self.weights</code>와 <code>self.bias</code>의 정의와 초기화 작업 그리고 <code>xb @ self.weights + self.bias</code> 계산을 대신 할 수 있습니다.
-<script type="application/javascript" src="https://gist.github.com/dj-woo/2d9a3d97d3c97e8b986f0bef9c72e69c.js?file=nn_Linear.py"></script>
-</p>
-<h3 id="4-optim-사용">4) optim 사용</h3>
-<p>미리 구현된, optimization 알고리즘을 <code>torch.optim</code>을 이용하여 사용할 수 있습니다.
-이를 통해, parameters를 <code>step()</code> method를 사용하 update할 수 있습니다.
-<script type="application/javascript" src="https://gist.github.com/dj-woo/2d9a3d97d3c97e8b986f0bef9c72e69c.js?file=optim.py"></script>
-</p>
-<h3 id="5-dataset--dataloader-사용">5) Dataset &amp; DataLoader 사용</h3>
-<p>구현을 하다보면, data를 load하고 자르고 섞는데 많은 code가 들어 갑니다.
-이때, Dataset과 DataLoader를 사용하면 이 부분을 쉽게 구현할 수 있습니다.
-<code>__len__</code>과 <code>__getitem__</code>를 가진 class는 <code>Dataset</code>으로 사용할 수 있습니다.
-반대로 <code>__len__</code>과 <code>__getitem__</code>만 만들면, customize된 <code>Dataset</code>을 정의할 수 있습니다.
-Tensor를 입력으로 받는 경우, 미리 정의된 <code>TensorDataset</code>를 사용할 수 있다.
-<code>DataLoader</code>는 batch 관리를 담당합니다.
-<code>Dataset</code>과 <code>DataLoader</code>를 사용하면 아래와 같이 코드가 훨씬 깔끔해 집니다.
-<script type="application/javascript" src="https://gist.github.com/dj-woo/2d9a3d97d3c97e8b986f0bef9c72e69c.js?file=dataset_dataloader.py"></script>
-</p>
-<h3 id="6-최종-code">6) 최종 code</h3>
-<p><code>torch.nn</code> &amp; <code>torch.optim</code> &amp; <code>Dataset</code> &amp; <code>DataLoader</code>를 사용하여, 아래와 같이 code를 refactoring 할 수 있습니다.
-<script type="application/javascript" src="https://gist.github.com/dj-woo/2d9a3d97d3c97e8b986f0bef9c72e69c.js?file=with_torch.py"></script>
-</p>
-<h2 id="reference">Reference</h2>
+<ol start="5">
+<li>git commit: git commit -ma &ldquo;<!-- raw HTML omitted -->&rdquo;
+or
+5.1 git add
+5.2 git commit -m</li>
+<li>git push origin <!-- raw HTML omitted --></li>
+<li>pull request(PR) (with issue 번호)
+origin =&gt; upstream</li>
+<li>code review
+8.1 pull request 후, 해당 branch에 추가 commit/push되면,
+PR이 자동 update됨</li>
+<li>merge: in upstream</li>
+<li>update local from upstream</li>
+</ol>
 <ul>
-<li><strong>[1]</strong> <a href="https://pytorch.org/tutorials/beginner/deep_learning_60min_blitz.html">DEEP LEARNING WITH PYTORCH: A 60 MINUTE BLITZ</a></li>
-<li><strong>[2]</strong> <a href="https://medium.com/@namanphy/understanding-autograd-5-pytorch-tensor-functions-8f47c27dc38">Understanding Autograd: 5 Pytorch tensor functions</a></li>
-<li><strong>[3]</strong> <a href="https://pytorch.org/tutorials/beginner/nn_tutorial.html">WHAT IS TORCH.NN REALLY?</a></li>
+<li>git checkout master</li>
+<li>git fetch upstream</li>
+<li>git rebase upstream/master</li>
+<li>git push -f origin master</li>
+</ul>
+<h1 id="git-flow">git flow</h1>
+<h1 id="reference">Reference</h1>
+<ul>
+<li><a href="https://learngitbranching.js.org/?locale=ko" title="option text">git 튜토리얼</a></li>
+<li><a href="https://nvie.com/posts/a-successful-git-branching-model/" title="option text">A successful Git branching model</a></li>
+<li><a href="https://woowabros.github.io/experience/2017/10/30/baemin-mobile-git-branch-strategy.html" title="option text">우린 Git-flow를 사용하고 있어요-우아한형제들 기술블로그</a></li>
+<li><a href="https://dzone.com/articles/top-20-git-commands-with-examples" title="option text">Top 20 Git Commands with Exmaples</a></li>
+<li><a href="https://medium.com/daangn/deploy-%EB%B8%8C%EB%9E%9C%EC%B9%98-%EC%A0%84%EB%9E%B5-%ED%99%9C%EC%9A%A9-%EB%B0%A9%EB%B2%95-545f278ca878" title="option text">deploy 브랜치 전략 활용 방법-당근마켓</a></li>
+<li><a href="https://git-scm.com/book/ko/v2/Git-%EB%8F%84%EA%B5%AC-Reset-%EB%AA%85%ED%99%95%ED%9E%88-%EC%95%8C%EA%B3%A0-%EA%B0%80%EA%B8%B0" title="option text">Git 도구 - Reset 명확히 알고 가기</a></li>
+<li><a href="https://www.atlassian.com/git/tutorials/undoing-changes/git-revert#:~:text=Summary,in%20regards%20to%20losing%20work" title="option text">Git Revert</a></li>
+<li><a href="https://readystory.tistory.com/151" title="option text">Git Rebase 제대로 알고 쓰기 (feat. cherry-pick)</a></li>
+<li><a href="https://ujuc.github.io/2015/12/16/git-flow-github-flow-gitlab-flow/" title="option texxt">Git flow, GitHub flow, GitLab flow</a></li>
 </ul>
 <!-- raw HTML omitted -->
               
@@ -361,9 +344,9 @@ Tensor를 입력으로 받는 경우, 미리 정의된 <code>TensorDataset</code
                   <div class="post-footer-tags">
                     <span class="text-color-light text-small">TAGGED IN</span><br/>
                     
-  <a class="tag tag--primary tag--small" href="https://dj-woo.github.io/tags/ml/">ML</a>
+  <a class="tag tag--primary tag--small" href="https://dj-woo.github.io/tags/github/">github</a>
 
-  <a class="tag tag--primary tag--small" href="https://dj-woo.github.io/tags/pytorch/">PyTorch</a>
+  <a class="tag tag--primary tag--small" href="https://dj-woo.github.io/tags/git-flow/">git flow</a>
 
                   </div>
                 
@@ -376,7 +359,7 @@ Tensor를 입력으로 받는 경우, 미리 정의된 <code>TensorDataset</code
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://dj-woo.github.io/2020/10/bert_fine_tuning/" data-tooltip="Bert_fine_tuning">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -384,7 +367,7 @@ Tensor를 입력으로 받는 경우, 미리 정의된 <code>TensorDataset</code
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://dj-woo.github.io/2020/09/transformer/" data-tooltip="Transformer">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://dj-woo.github.io/2020/11/albert/" data-tooltip="Albert">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -434,7 +417,7 @@ Tensor를 입력으로 받는 경우, 미리 정의된 <code>TensorDataset</code
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://dj-woo.github.io/2020/10/bert_fine_tuning/" data-tooltip="Bert_fine_tuning">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -442,7 +425,7 @@ Tensor를 입력으로 받는 경우, 미리 정의된 <code>TensorDataset</code
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://dj-woo.github.io/2020/09/transformer/" data-tooltip="Transformer">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://dj-woo.github.io/2020/11/albert/" data-tooltip="Albert">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>

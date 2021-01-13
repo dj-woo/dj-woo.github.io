@@ -3,17 +3,52 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://dj-woo.github.io/2020/11/albert/</loc>
-    <lastmod>2020-11-23T22:14:37+09:00</lastmod>
+    <loc>https://dj-woo.github.io/categories/</loc>
+    <lastmod>2021-01-10T16:02:17+09:00</lastmod>
   </url>
   
   <url>
-    <loc>https://dj-woo.github.io/categories/</loc>
-    <lastmod>2020-11-23T22:14:37+09:00</lastmod>
+    <loc>https://dj-woo.github.io/categories/category/</loc>
+    <lastmod>2021-01-10T16:02:17+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://dj-woo.github.io/</loc>
+    <lastmod>2021-01-10T16:02:17+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dj-woo.github.io/tags/git-flow/</loc>
+    <lastmod>2021-01-10T16:02:17+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dj-woo.github.io/2021/01/git_test/</loc>
+    <lastmod>2021-01-10T16:02:17+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dj-woo.github.io/tags/github/</loc>
+    <lastmod>2021-01-10T16:02:17+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dj-woo.github.io/post/</loc>
+    <lastmod>2021-01-10T16:02:17+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dj-woo.github.io/categories/subcategory/</loc>
+    <lastmod>2021-01-10T16:02:17+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dj-woo.github.io/tags/</loc>
+    <lastmod>2021-01-10T16:02:17+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dj-woo.github.io/2020/11/albert/</loc>
     <lastmod>2020-11-23T22:14:37+09:00</lastmod>
   </url>
   
@@ -38,32 +73,12 @@
   </url>
   
   <url>
-    <loc>https://dj-woo.github.io/post/</loc>
-    <lastmod>2020-11-23T22:14:37+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://dj-woo.github.io/tags/</loc>
-    <lastmod>2020-11-23T22:14:37+09:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://dj-woo.github.io/2020/10/bert_fine_tuning/</loc>
     <lastmod>2020-10-29T00:08:34+09:00</lastmod>
   </url>
   
   <url>
-    <loc>https://dj-woo.github.io/categories/category/</loc>
-    <lastmod>2020-10-29T00:08:34+09:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://dj-woo.github.io/tags/pytorch/</loc>
-    <lastmod>2020-10-29T00:08:34+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://dj-woo.github.io/categories/subcategory/</loc>
     <lastmod>2020-10-29T00:08:34+09:00</lastmod>
   </url>
   
@@ -75,6 +90,14 @@
   <url>
     <loc>https://dj-woo.github.io/2020/09/transformer/</loc>
     <lastmod>2020-09-13T17:00:49+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dj-woo.github.io/1/01/</loc>
+  </url>
+  
+  <url>
+    <loc>https://dj-woo.github.io/1/01/</loc>
   </url>
   
   <url>

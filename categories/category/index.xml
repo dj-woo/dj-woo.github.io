@@ -6,10 +6,19 @@
     <description>Recent content in category on djwoo blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Thu, 29 Oct 2020 00:08:34 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 10 Jan 2021 16:02:17 +0900</lastBuildDate>
     
 	<atom:link href="https://dj-woo.github.io/categories/category/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Git_test</title>
+      <link>https://dj-woo.github.io/2021/01/git_test/</link>
+      <pubDate>Sun, 10 Jan 2021 16:02:17 +0900</pubDate>
+      
+      <guid>https://dj-woo.github.io/2021/01/git_test/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Bert_fine_tuning</title>
