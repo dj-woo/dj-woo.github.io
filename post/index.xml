@@ -56,30 +56,5 @@
       <description></description>
     </item>
     
-    <item>
-      <title></title>
-      <link>https://dj-woo.github.io/1/01/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://dj-woo.github.io/1/01/</guid>
-      <description>paper : https://arxiv.org/pdf/1910.02600.pdf
-##0 Abstract 문제:
-  Deterministic neural networks (NNs) are increasingly being deployed in safety critical domains, where calibrated, robust, and efficient measures of uncertainty are crucial. In this paper, we propose a novel method for training non-Bayesian NNs to estimate a continuous target as well as its associated evidence in order to learn both aleatoric and epistemic uncertainty
-   Aleatoric Uncertainty: 완전하지 않은 Data에 의한 불확실성.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://dj-woo.github.io/1/01/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://dj-woo.github.io/1/01/</guid>
-      <description>#setup env set CONDA_FORCE_32BIT=1 conda create -n py38_32 anaconda conda activate py38_32 python
-   import platform platform.architecture() (&amp;lsquo;64bit&amp;rsquo;, &amp;lsquo;WindowsPE&amp;rsquo;)
-   conda config &amp;ndash;env &amp;ndash;set subdir win-32 conda install python python
-   import platform platform.architecture() (&amp;lsquo;64bit&amp;rsquo;, &amp;lsquo;WindowsPE&amp;rsquo;)
-   </description>
-    </item>
-    
   </channel>
 </rss>
