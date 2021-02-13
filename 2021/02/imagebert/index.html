@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="ko-kr">
+  <head>
+    
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.65.0 with theme Tranquilpeak 0.4.8-BETA">
+<meta name="author" content="Deumji Woo">
+<meta name="keywords" content="">
+<meta name="description" content="">
+
+
+<meta property="og:description" content="">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ImageBERT">
+<meta name="twitter:title" content="ImageBERT">
+<meta property="og:url" content="https://dj-woo.github.io/2021/02/imagebert/">
+<meta property="twitter:url" content="https://dj-woo.github.io/2021/02/imagebert/">
+<meta property="og:site_name" content="djwoo blog">
+<meta property="og:description" content="">
+<meta name="twitter:description" content="">
+<meta property="og:locale" content="en-us">
+
+  
+    <meta property="article:published_time" content="2021-02-12T00:03:41">
+  
+  
+    <meta property="article:modified_time" content="2021-02-12T00:03:41">
+  
+  
+  
+    
+      <meta property="article:section" content="ML">
+    
+      <meta property="article:section" content="paper review">
+    
+  
+  
+    
+      <meta property="article:tag" content="ML">
+    
+      <meta property="article:tag" content="paper review">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+
+
+
+
+
+
+
+
+
+
+  <meta property="og:image" content="https://www.gravatar.com/avatar/9f4c32e0b56b36cdb288d9b239c9324c?s=640">
+  <meta property="twitter:image" content="https://www.gravatar.com/avatar/9f4c32e0b56b36cdb288d9b239c9324c?s=640">
+
+
+    <title>ImageBERT</title>
+
+    <link rel="icon" href="https://dj-woo.github.io/favicon.png">
+    
+
+    
+
+    <link rel="canonical" href="https://dj-woo.github.io/2021/02/imagebert/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="https://dj-woo.github.io/css/style-twzjdbqhmnnacqs0pwwdzcdbt8yhv8giawvjqjmyfoqnvazl0dalmnhdkvp7.min.css" />
+    
+    
+
+    
+      
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="4">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://dj-woo.github.io/">djwoo blog</a>
+  </div>
+  
+  <script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+  });
+  MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+</header>
+
+      <nav id="sidebar" data-behavior="4">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://dj-woo.github.io/#about">
+          <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/9f4c32e0b56b36cdb288d9b239c9324c?s=110" alt="Author&#39;s picture" />
+        </a>
+        <h4 class="sidebar-profile-name">Deumji Woo</h4>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://dj-woo.github.io/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://dj-woo.github.io/categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      
+      <span class="sidebar-button-desc">Categories</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://dj-woo.github.io/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://dj-woo.github.io/archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://dj-woo.github.io/#about">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/dj-woo" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://dj-woo.github.io/index.xml">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+      
+      <span class="sidebar-button-desc">RSS</span>
+    </a>
+  </li>
+
+
+    </ul>
+  </div>
+</nav>
+
+      
+
+      <div id="main" data-behavior="4"
+        class="
+               hasCoverMetaIn
+               ">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+          
+            <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title" itemprop="headline">
+      ImageBERT
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2021-02-12T00:03:41&#43;09:00">
+        
+  February 12, 2021
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://dj-woo.github.io/categories/ml">ML</a>, 
+    
+      <a class="category-link" href="https://dj-woo.github.io/categories/paper-review">paper review</a>
+    
+  
+
+  </div>
+
+</div>
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              <p>리뷰할 paper는 <strong>ImageBERT: Cross-modal Pre-training with Large-scale Weak-supervised Image-Text Data</strong> 입니다.<br>
+순서는 논문과 동일한 순서로 되어 있습니다.<br>
+<strong>Key word</strong></p>
+<ul>
+<li>Large Data Set</li>
+<li>One Transformer</li>
+<li>Multi-stage Pre-training + 4 tasks</li>
+</ul>
+<h2 id="1-introduction">1 Introduction</h2>
+<p>Text-Image Retrieval, Visual Question Answering(VQA), Visual Commonsense Reasoning(VCR)등 image와 text를 둘다 처리하는 task에 관심이 많아 지고 있는데요.<br>
+NLP에서 성공을 보인, pre-training을 활용한 방법을 language + vision cross modal task에도 적용하고 하는 노력이 있었습니다.<br>
+이 논문에서 이러한 cross-modal pre-training 방법들을 비교하고, 자신들이 제안한 방법들을 소개합니다.</p>
+<h2 id="2-related-work">2 Related Work</h2>
+<p>Transformer가 제안된 후, 많은 논문들이 이를 활용하여 cross-modal 문제를 풀고자 하였습니다. 이들을 중심으로 related work을 분석하였습니다.</p>
+<ul>
+<li>
+<p>Model Architecture</p>
+<ul>
+<li>language와 vision에 별도의 transformer를 적용후, 이에 cross-modal transformer를 추가하는 방법: ViLBERT, LXMERT등</li>
+<li>image와 sentence를 하나로 concat 시킨 후, 하나의 transfomer에 넣어서 처리하는 방법: VisualBERT, B2T2, Unicoder-VL, VL-BERT, Unified VLP, UNITER등</li>
+<li>두 방법 중 어느 방법이 좋다고 말 할 수 없지만, 본 논문에서는 하나의 transfomer를 사용합니다.</li>
+</ul>
+</li>
+<li>
+<p>Image visual tokens</p>
+<ul>
+<li>많은 방법에서 regions of interest(RoI)를 word의 token처럼 사용합니다.</li>
+<li>VL-BERT에서는 RoI를 구하는 detection model까지 같이 학습을 하였습니다. 보통 학습된 model을 사용합니다.<br>
+또한 global image feature도 token으로 추가하였습니다.</li>
+</ul>
+</li>
+<li>
+<p>Pre-train data</p>
+<ul>
+<li>기존에 많이 상용되는 data-set은 Conceptual Captions(3M)과 SBU Captions(1M)이 있지만, NLP에서 사용하는 방대한 data-set에 비하면, 만족할 만한 data-set을 얻기 어렵습니다.</li>
+</ul>
+</li>
+</ul>
+<h2 id="3-large-scale-week-supervised-image-text-data-collection">3 Large-Scale Week-supervised Image-Text Data Collection</h2>
+<p>NLP의 경우, wiki와 같이 매우 방대한 data-set(wiki, book, &hellip;)을 얻을 수 있지만, cross-modal에서는 이러한 방대한 data-set을 얻기 어렵습니다.<br>
+많이 사용하는 data-set으로 CC(3M), SBU(1M)가 있지만, 충분하다고 볼 수 없습니다.<br>
+이를 보완하기 위해서, 논문에서는 web-site에서 LAIT(Large-scale weAk-supervised Image-Text)(10M)를 만들었습니다.
+LAIT를 만드는 방법은 아래 그림과 같이 5단계로 이루어 집니다.</p>
+<p><img src="https://dj-woo.github.io/img/ImageBERT/LAIT_1step.PNG" alt="Web-page Collection">
+<img src="https://dj-woo.github.io/img/ImageBERT/LAIT_2step.PNG" alt="Image Content Based Filtering">
+<img src="https://dj-woo.github.io/img/ImageBERT/LAIT_3step.PNG" alt="Sentence Detection & Cleaning">
+<img src="https://dj-woo.github.io/img/ImageBERT/LAIT_4step.PNG" alt="Image-Text Semantic Scoring">
+<img src="https://dj-woo.github.io/img/ImageBERT/LAIT_5step.PNG" alt="Image-Text Aggregation"></p>
+<p><strong>[Example of LAIT]</strong>
+<img src="https://dj-woo.github.io/img/ImageBERT/LAIT_goodExample.PNG" alt="Good Example of LAIT">
+<br>
+<strong>[Discarded Example of LAIT]</strong>
+<img src="https://dj-woo.github.io/img/ImageBERT/LAIT_discardedExample.PNG" alt="Discarded Example of LAIT"></p>
+<h2 id="4-imagebert-model">4 ImageBERT Model</h2>
+<p>ImageBERT model 구조는 아래와 같습니다.
+<img src="https://dj-woo.github.io/img/ImageBERT/ImageBERT_architecture.PNG" alt="Discarded Example of LAIT">
+BERT와 비슷하게 Transformer를 basic structure로 사용하였으면, visual token과 textual token을 input으로 사용하였습니다.<br>
+visual token과 textual token은 서로 다른 방법으로 embedding된 후, BERT로 들어갑니다.</p>
+<h3 id="41-embedding-modelins">4.1 Embedding Modelins</h3>
+<ul>
+<li>textual token을 만들기 위해서, BERT와 동일한 WorlPiece[<a href="https://medium.com/@makcedward/how-subword-helps-on-your-nlp-model-83dd1b836f46" title="option text">2</a>]를 사용 합니다.</li>
+<li>visual token을 생성하기 위해서, Faster-RCNN[<a href="https://arxiv.org/abs/1506.01497" title="option text">3</a>]를 사용하여 RoI 추출합니다. 이때 생성되는 feature와 location 정보를 사용하여 visual token을 embedding합니다.<br>
+이때, 각각의 embedding layer는 Transformer의 hidden size와 동일한 size로 각 vector를 project합니다.<br>
+<code>$ c^{(i)} = (\frac{x_{tl}}{W},\frac{y_{tl}}{H},\frac{x_{br}}{W},\frac{y_{br}}{H},\frac{(x_{br}-x_{tl})(y_{br}-y_{tl})}{WH})\\ r^{(i)} = extracted\ features\ of\ the\ i_{th}\ RoI\\ v^{(i)} = ImageEmbed(r^{(i)})\\ s^{(i)} = SegmentEmbed(i)\\ p^{(i)}_{img} = PositionEmbed(c^{(i)})\\ p^{(i)}_{seq} = PositionEmbed(i)\\ e^{(i)} = LN(v^{(i)} + s^{(i)} + p^{(i)}_{img} + p^{(i)}_{seq}) $</code></li>
+<li>sequence position embedding의 경우, visual token에는 dummy vector가 적용되면, textual token에는 순서에 따라 vector가 배치됩니다.</li>
+<li>segment embedding의 경우, 서로 다른 modality를 표현하는 용도로 사용됩니다.</li>
+</ul>
+<h3 id="42-multi-stage-pre-training">4.2 Multi-stage Pre-training</h3>
+<p>data-set의 출처가 다르고, quality &amp; noise distribution이 서로 다르기 때문에, 아래와 같은 multi-stage pre-training을 사용하였습니다.<br>
+학습의 순서는 large-scale out-of-domain data-set으로 먼저 학습하고, 이후에 점차 small scale in-domain data-set으로 학습을 진행합니다.</p>
+<p><img src="https://dj-woo.github.io/img/ImageBERT/multi_stage_pre_training.PNG" alt="Multi-stage Pre-training"></p>
+<h3 id="43-pre-training-tasks">4.3 Pre-training tasks</h3>
+<p>linguistic information과 visual content를 학습하기 위하여, 4가지 task를 사용하였습니다.</p>
+<ul>
+<li>
+<p>Masked Language Modeling (MLM): Bert에서 사용한 MLM와 동일한 task</p>
+<ul>
+<li>masked randomly with a probability of 15%</li>
+<li>replaced with a special token [MASK](80%), a random token(10%), remains unchanged(10%)</li>
+<li>using the negative log-likelihood<br>
+<code>$$ L_{MLM}(θ) = −E_{(v,w)∼D} log Pθ(w_{mT}|w_{\mT}, v) $$</code></li>
+</ul>
+</li>
+<li>
+<p>Masked Object Classification (MOC)</p>
+<ul>
+<li>masked randomly with a probability of 15%</li>
+<li>replaced with a zero out the masked token(90%), keep the original token(10%)</li>
+<li>add a fully-connected layer to predict the correct label from K object classes</li>
+<li>using the cross-entropy(CE) loss
+<ul>
+<li>Faster R-CNN model as ground truth label: <code>$l_{θ}(v^{(i)}_{mI})$</code></li>
+<li>the output vector corresponding to the masked token: <code>$f_{θ}(v^{(i)}_{mI})$</code>
+<code>$$ L_{MOC} (θ) = −E_{(v,w)∼D}{\sum^{M−1}_{i=0}CE(l_{θ}(v^{(i)}_{mI}), f_{θ}(v^{(i)}_{mI}))} $$</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Masked Region Feature Regression (MRFR)</p>
+<ul>
+<li>This task aims to regress the embedding feature of each masked object</li>
+<li>add a fully-connected layer on top of the output feature vector to make same dimension</li>
+<li>using the L2 loss
+<ul>
+<li>Faster R-CNN model as ground truth feature: <code>$ r_{θ}(v^{(i)}_{mI}) $</code></li>
+<li>the output feature corresponding to the masked token: <code>$ h_{θ}(v^{(i)}_{mI} $</code><br>
+<code>$$ L_{MRFR} (θ) = −E_{(v,w)∼D}{\sum^{M−1}_{i=0}\lVert h_{θ}(v^{(i)}_{mI}) - r_{θ}(v^{(i)}_{mI})} \rVert_2^2 $$</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Image Text Matching (ITM)</p>
+<ul>
+<li>This task aims to learn the image-text alignment</li>
+<li>Negative training data
+<ul>
+<li>randomly sample negative sentences for each image</li>
+<li>randomly sample negative images for each sentence</li>
+</ul>
+</li>
+<li>addy a fully-connected layer on top to obtain the image-text similarity score: <code>$s_θ(v, w)$</code></li>
+<li>using binary classification loss
+<ul>
+<li>the ground truth label: <code>$y ∈ {0, 1}$</code><br>
+<code>$$ L_{ITM}(θ) = −E_{(v,w)∼D}[y \log s_θ(v, w) + (1 − y) \log (1 − s_θ(v, w))] $$</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="44-fine-tuning-tasks">4.4 Fine-tuning tasks</h3>
+<p>Fine-tuning은 MSCOCO and Flickr30k data-set으로 진행하였으며, input sequence는 pre-training과 동일합니다.
+Fine-tuning과정에서는 mask를 사용한 task들은 사용하지 않고, ITM만 사용하였습니다.
+3가지 loss를 사용하여 실험을 진행하였습니다.</p>
+<ul>
+<li>Binary classification Loss<br>
+<code>$ L_{BCE}(θ) = −E_{(v,w)}[y \log c_θ(t_{(v,w)}) + (1 − y) \log (1 − c_θ(t_{(v,w)}))] $</code></li>
+<li>Multi-class Classification Loss<br>
+<code>$ L_{CE}(θ) = −E^{(j)}_{(v,w)}{\sum^{P-1}_{j=0}}CE(s(t^{(j)}_{(v,w)}), l^{(j)}_{(v,w)}) $</code></li>
+<li>Triplet Loss<br>
+<code>$ L_{Triplet}(θ) = −E^{(j)}_{(v,w)}{\sum_(n^-∈N)} \max [ 0, s(t_{(v,w)^+} ), s(n^-_h)] $</code></li>
+</ul>
+<h2 id="5-experiments">5 Experiments</h2>
+<ul>
+<li>Transformer: a 12-layer with 768 hidden units, 3072 intermediate units, and 12 attention heads</li>
+<li>Dropout probability to 0.1</li>
+<li>Use GELU as activation function</li>
+<li>The max length of our input sequence is fixed to 144, 100 visual tokens + other linguistic tokens and special tokens</li>
+<li>Use a Faster RCNN model pre-trained on Visual Genome dataset with 1600 categories</li>
+<li>Pre-training:
+<ul>
+<li>data-set
+<ul>
+<li>1-stage: Use the LAIT(10M), with parameter initialized from the BERT-base model</li>
+<li>2-stage: Use pre-training on public datasets: CC(3M), SBU(1M)</li>
+</ul>
+</li>
+<li>hyperparamter
+<ul>
+<li>batch size = 48</li>
+<li>learning rate = 1e-4 with Adam optimizer</li>
+<li>17 epochs using 4 V100 GPUs</li>
+</ul>
+</li>
+<li>tasks
+<ul>
+<li>Use conditional mask in MLM, MOC and MRFR tasks</li>
+<li>Only calculate the masked loss when the input pair is a positive sample</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Fine-tuning
+<ul>
+<li>data-set
+<ul>
+<li>Use Flickr30k and MSCOCO</li>
+</ul>
+</li>
+<li>hyperparameter
+<ul>
+<li>batch size = 24</li>
+<li>learning rate = 5e-5</li>
+<li>130 epochs using 4 V100 GPUs</li>
+</ul>
+</li>
+<li>tasks
+<ul>
+<li>Only use ITM</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="51-evaluation-for-the-pre-trained-model">5.1 Evaluation for the Pre-trained Model</h3>
+<p><img src="https://dj-woo.github.io/img/ImageBERT/table1.PNG" alt="table1"></p>
+<p>Zero-shot result of pre-train model: 1-stage pre-training을 사용한 방법과 비교하여, comparable results를 보입니다.
+추가적으로, fine-tuning에서는 더 좋은 결과를 보여주기 때문에, multi-stage pre-training이 single-stage pre-training 보다 useful한 지식을 학습 한다고 되어 있습니다.</p>
+<blockquote>
+<p>our multi-stage pre-training strategy learns more useful knowledge during pre-training,
+and can consequently contribute to the fine-tuning stage on the downstream tasks.</p>
+</blockquote>
+<h3 id="52-evaluation-for-the-fine-tuned-model">5.2 Evaluation for the Fine-tuned Model</h3>
+<p><img src="https://dj-woo.github.io/img/ImageBERT/table2.PNG" alt="table2"></p>
+<p>Flickr30k와 MSCOCO에서 모두 state-of-the-art를 달성하였습니다.
+pre-training에서 quality &amp; noise distribution가 다른 data-set을 사용할 경우, data-set을 나누어 학습하는게 하나로 학습하는 것보다 좋다는 것을 알 수 있습니다.</p>
+<h3 id="53-ablation-studies">5.3 Ablation Studies</h3>
+<p><img src="https://dj-woo.github.io/img/ImageBERT/table3.PNG" alt="table3"></p>
+<p><strong>Pre-train dataset</strong>: LAIT, CC, SBU를 조합한 test들에서, 제안한 multi-stage pre-trining이 가장 좋은 성능을 보였습니다.</p>
+<p><img src="https://dj-woo.github.io/img/ImageBERT/table4.PNG" alt="table4"></p>
+<p><strong>Global image features</strong>: RoIs가 전체 image의 정보를 담지 못 할때를 대비하여, Global image feature를 추가하는 방법을 실험하였습니다.
+Table4.1의 결과와 같이 유의미한 성능 개선은 보이지 않았습니다.</p>
+<p><strong>Pre-train loss</strong>: MRFR task를 유의미성을 Table4.2를 통해 보여줍니다.
+MRFR task는 다른 task보다 어려운 task에 속하는데, 이를 통해서 어려운 task를 추가하는 것이 더 좋은 model을 얻는데 도움이 된다는 것을 알 수 있습니다.</p>
+<p><strong>Number of objects (RoIs) from image</strong>: 지금까지 한 실험들은 모두 100개의 RoI를 사용하였습니다. RoI의 수가 성능에 미치는 영향을 Table4.3을 통해 보여줍니다.
+많은 objects가 더 좋은 결과를 내는데 도움이 되는 걸 알 수 있습니다.</p>
+<p><strong>Fine-tune loss</strong>: Fine-tuning에 사용한 여러 loss의 결과를 Table4.4를 통해 보여줍니다.
+개인적으로는 Triplet loss가 가장 좋을거라고 생각했습니다. 하지만 결과적으로 Binary only가 가장 좋은 결과를 보여줍니다.</p>
+<h2 id="6-conclusion">6 Conclusion</h2>
+<p>이 논문의 특징을 정리하면, 아래 3가지로 요약할 수 있습니다.</p>
+<ol>
+<li>Transformer를 기반, vision-language joint embedding architecture</li>
+<li>기존 data-set보다 큰 LAIT data-set</li>
+<li>Multi-stage pre-training with 4 tasks(MLM, MOC, MRFR, ITM)</li>
+</ol>
+<h2 id="reference">Reference</h2>
+<ul>
+<li><a href="https://arxiv.org/abs/2001.07966" title="option text">ImageBERT: Cross-modal Pre-training with Large-scale Weak-supervised Image-Text Data</a></li>
+<li><a href="https://medium.com/@makcedward/how-subword-helps-on-your-nlp-model-83dd1b836f46" title="option text">3 subword algorithms help to improve your NLP model performance</a></li>
+<li><a href="https://arxiv.org/abs/1506.01497" title="option text">Faster R-CNN: Towards Real-Time Object Detection with Region Proposal Networks</a></li>
+</ul>
+<!-- raw HTML omitted -->
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">TAGGED IN</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://dj-woo.github.io/tags/ml/">ML</a>
+
+  <a class="tag tag--primary tag--small" href="https://dj-woo.github.io/tags/paper-review/">paper review</a>
+
+                  </div>
+                
+              
+            
+            <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://dj-woo.github.io/2021/01/git_test/" data-tooltip="Git_test">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+      
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+            
+              
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2021 Deumji Woo. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+        <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://dj-woo.github.io/2021/01/git_test/" data-tooltip="Git_test">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+      
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://www.gravatar.com/avatar/9f4c32e0b56b36cdb288d9b239c9324c?s=110" alt="Author&#39;s picture" />
+    
+    <h4 id="about-card-name">Deumji Woo</h4>
+    
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        Korea
+      </div>
+    
+  </div>
+</div>
+
+    
+
+    
+  
+    
+      <div id="cover" style="background-image:url('https://dj-woo.github.io/images/cover.jpg');"></div>
+    
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
+
+
+<script src="https://dj-woo.github.io/js/script-pcw6v3xilnxydl1vddzazdverrnn9ctynvnxgwho987mfyqkuylcb1nlt.min.js"></script>
+
+
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+  
+    
+  
+
+
+
+
+    
+  </body>
+</html>
+
