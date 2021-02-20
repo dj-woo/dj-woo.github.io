@@ -259,15 +259,14 @@ action classification task에서 backbone으로 사용되는 I3D net을 제안�
 <li>new Two-Stream Inflated 3D ConvNet(I3D)을 제안 하였습니다.</li>
 </ol>
 <h2 id="1-introduction">1. Introduction</h2>
-<p>Image에서는 ImageNet dataset을 사용하여 model을 pre-train하고, 이를 다른 분야에 활용하는 사례가 있음
-이러한 확장성이 video 분야에서는 가능한가?
-이를 위해서는 video 분야에서도 큰 dataset이 있어야 하지만, 보통 10k정도의 dataset이 있어 이를 확인해 볼수 없음.</p>
-<p>그래서 Kinetics Human Action Video Dataset: 400 action class x min 400 example (x100)를 만들어서 사용했다.
+<p>Image에서는 ImageNet dataset을 사용하여 model을 pre-train하고, 이를 다른 분야에 활용하는 transfer learning이 널리 사용되고 있습니다.
+이러한 확장성이 video 분야에서는 가능한가?에서 논문을 시작하였습니다.
+이를 실험하기 위해서는 video 분야에서도 큰 dataset이 있어야 하지만, 보통 10k정도의 dataset만 있어 이를 확인하기가 쉽지 않습니다.</p>
+<p>그래서 기존 dataset보다 x100정도 되는 Kinetics Human Action Video Dataset(400 action class x min 400 clips)으로 실험을 진행하였습니다.
 Kinetics dataset으로 pre-training을 하고, HMDB-51 and UCF-101으로 fine-tuning을 하는 방식으로,
-기존 여러 architecture에 대해서 실험을 진행해 보았다.
-큰 dataset으로 pre-training을 하고, target dataset으로 fine-tuning을 하는 전략은 언제나 성능 향상을 보입니다.
-하지만 그 성능 향상의 차이가 architecture에 따라 다르게 나타납니다.
-그래서 추가적으로 “Two-Stream Inflated 3D ConvNets” (I3D)를 제안하여, SOTA를 달성하였습니다.</p>
+큰 dataset으로 pre-training을 하고, target dataset으로 fine-tuning을 하는 전략은 언제나 성능 향상을 보이는 것을 확인하였습니다.
+하지만 그 성능 향상의 차이가 architecture에 따라 다르게 나타났고, 
+더 좋은 transferability를 보이는 “Two-Stream Inflated 3D ConvNets”(I3D)를 제안하여, SOTA를 달성하였습니다.</p>
 <h2 id="2-action-classification-architecture">2. Action Classification Architecture</h2>
 <p>기존 work을 분석하기 위하여, video용 architecture는 아래와 같은 기준으로 분류 해놓았습니다.</p>
 <ol>
