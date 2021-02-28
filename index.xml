@@ -6,10 +6,22 @@
     <description>Recent content on djwoo blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Fri, 19 Feb 2021 10:29:25 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 25 Feb 2021 14:15:19 +0900</lastBuildDate>
     
 	<atom:link href="https://dj-woo.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>[Paper review] TimeSformer</title>
+      <link>https://dj-woo.github.io/2021/02/paper-review-timesformer/</link>
+      <pubDate>Thu, 25 Feb 2021 14:15:19 +0900</pubDate>
+      
+      <guid>https://dj-woo.github.io/2021/02/paper-review-timesformer/</guid>
+      <description>&lt;p&gt;[Paper review] &lt;a href=&#34;https://arxiv.org/pdf/2102.05095v1.pdf&#34;&gt;TimeSformer&lt;/a&gt;&lt;br&gt;
+title   = Is Space-Time Attention All You Need for Video Understanding?&lt;br&gt;
+author  = Gedas Bertasius and Heng Wang and Lorenzo Torresani&lt;br&gt;
+year    = 9 Feb 2021&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>I3D</title>
